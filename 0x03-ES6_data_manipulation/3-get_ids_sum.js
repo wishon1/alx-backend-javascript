@@ -1,7 +1,13 @@
-import getListStudents from "./0-get_list_students.js";
-import getStudentIdsSum from "./3-get_ids_sum.js";
+/**
+ * Returns the sum of all the students' ids.
+ * @param {Object[]} students - The list of all students.
+ * @returns {number} - The total sum of student ids.
+ */
+export default function getStudentIdsSum(students) {
+  // Check if students is an array
+  if (Array.isArray(students)) {
+    return students.reduce((sum, student) => sum.id || sum + student.id, 0);
+  }
 
-const students = getListStudents();
-const value = getStudentIdsSum(students);
-
-console.log(value);
+  return 0;
+}

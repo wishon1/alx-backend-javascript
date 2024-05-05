@@ -8,7 +8,7 @@
 export default function cleanSet(set, startString) {
   let result = [];
   // Check if set is a Set instance and startString is a String instance
-  if (!(set instanceof Set) || !(typeof startString === 'string') || startString.length === 0) {
+  if (!(set instanceof Set) || !(typeof startString === 'string') || (startString === undefined) || (startString.length === 0)) {
     return '';
   }
   // Iterate over each value in the set

@@ -6,20 +6,28 @@
  */
 
 export default function cleanSet(set, startString) {
-  let result = [];
-  // Check if set is a Set instance and startString is a String instance
-  if (!(set instanceof Set) || !(typeof startString === 'string') || (startString === undefined) || (startString.length === 0)) {
+  // Check if startString is undefined or empty
+  if (startString === undefined || startString.length === 0) {
     return '';
   }
-  // Iterate over each value in the set
-  for (const value of set) {
-    // Check if the value starts with the startString
-    if (value.startsWith(startString)) {
-      // slice startstring length from value
-      const sliceValue = value.slice(startString.length);
-      result += `${sliceValue}-`;
-    }
-  }
-  // Remove the last '-' character from the result string
-  return result.slice(0, -1);
+
+  // return Array.from(set)
+
+  const arrayFromSet = [];
+  set.forEach((elem) => arrayFromSet.push(elem));
+
+  return arrayFromSet
+    .filter((elem) => {
+      if (elem !== undefined) {
+        return elem.startsWith(startString);
+      }
+      return '';
+    }) // Filter values that start with startString
+    .map((elem) => {
+      if (elem !== undefined) {
+        return elem.slice(startString.length);
+      }
+      return '';
+    }) // Map to remove startString from each value
+    .join('-'); // Join the filtered and mapped values with '-'
 }

@@ -20,11 +20,19 @@ import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
 export default async function handleProfileSignup(firstName, lastName, fileName) {
+  // Use Promise.allSettled to handle both promises from signUpUser and uploadPhoto
+  // Promise.allSettled takes an array of promises and returns a promise that resolves
+  // after all of the given promises have either resolved or rejected
   return Promise
-    .allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
+    .allSettled([
+      signUpUser(firstName, lastName),
+      uploadPhoto(fileName),
+    ])
     .then((res) => (
+      // Map through the results to create a new array with the required structure
       res.map((o) => ({
-        status: o.status,
+        status: o.status, // Include the status of the promise (fulfilled or rejected)
+        // Include the value of the promise if fulfilled, or the reason (error) if rejected
         value: o.status === 'fulfilled' ? o.value : String(o.reason),
       }))
     ));

@@ -1,3 +1,14 @@
+/**
+  * Implement a class named HolbertonClass:
+  * Constructor attributes:
+  *   size (Number)
+  *   location (String)
+  * Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+  * When the class is cast into a Number, it should return the size.
+  * When the class is cast into a String, it should return the location.
+  *
+  * @Return the size(int), and the location(str)
+  */
 export default class HolbertonClass {
   constructor(size, location) {
     this._size = size;

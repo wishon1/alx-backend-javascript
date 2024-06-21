@@ -1,29 +1,15 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const { expect } = chai;
-chai.use(chaiHttp);
 
-// Assuming your Express server is in a file named app.js
-const app = require('./app');
+const request = require('request');
+const { expect } = require('chai');
 
-describe('Index Page', () => {
-    // Test for correct status code
-    it('should return status code 200', (done) => {
-        chai.request(app)
-            .get('/')
-            .end((err, res) => {
-                expect(res).to.have.status(200);
-                done();
-            });
+describe('API integration test', () => {
+  const API_URL = 'http://localhost:7865';
+
+  it('GET / returns correct response', (done) => {
+    request.get(`${API_URL}/`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('Welcome to the payment system');
+      done();
     });
-
-    // Test for correct result
-    it('should return the message "Welcome to the payment system"', (done) => {
-        chai.request(app)
-            .get('/')
-            .end((err, res) => {
-                expect(res.text).to.equal('Welcome to the payment system');
-                done();
-            });
-    });
+  });
 });

@@ -34,9 +34,9 @@
       "url": "https://github.com/hardope/alx-backend-javascript"
     },
     "bugs": {
-      "url": "https://github.com/hardope/alx-backend-javascript/issues"
+      "url": "https://github.com/wishon1/alx-backend-javascript/issues"
     },
-    "homepage": "https://github.com/hardope/alx-backend-javascript/blob/main/0x06-unittests_in_js/README.md",
+    "homepage": "https://github.com/wishon1/alx-backend-javascript/tree/main/0x06-unittests_in_js/README.md",
     "engines": {
       "node": "16.x",
       "npm": "8.x",

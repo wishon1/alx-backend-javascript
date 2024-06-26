@@ -5,7 +5,7 @@
   * It should accept one attribute named maxStudentsSize (Number) and assigned
   * to _maxStudentsSize
   *
-  * @ Return(int): returns an integer-maxStudentsSize
+  * @return(int): returns an integer-maxStudentsSize
   */
 export default class ClassRoom {
   constructor(maxStudentsSize) {
